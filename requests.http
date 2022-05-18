@@ -2,14 +2,14 @@
 GET http://localhost:3000/projects
 
 ### Get project by id
-GET http://localhost:3000/projects/123
+GET http://localhost:3000/projects/fhhi2M3lDZAmOcdkGmFT
 
 ### Create new project
 POST http://localhost:3000/projects
 Content-Type: application/json
 
 {
-  "name": "Project name",
+  "name": "Project 2 name",
   "description": "Project description",
   "imageUrl": "www.yourimageurl.com",
   "repositoryUrl": "www.repositoryurl.com",

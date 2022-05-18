@@ -1,13 +1,22 @@
 import { IProject } from './types';
-import { collection, getDocs, doc, addDoc } from 'firebase/firestore/lite';
+import {
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  addDoc,
+} from 'firebase/firestore/lite';
 import db from '../db';
 
 export class ProjectsRepository {
   projectsCol = collection(db, 'projects');
 
   async findById(id: string) {
-    const project = doc(this.projectsCol, id);
-    return project;
+    const docRef = doc(this.projectsCol, id);
+    const docSnap = await getDoc(docRef);
+    return docSnap.exists()
+      ? docSnap.data()
+      : `No exists project with id ${id}`;
   }
 
   async findAll() {
